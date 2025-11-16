@@ -1,5 +1,5 @@
 {
-  "name": "starter-next-porject",
+  "name": "starter-next-project",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,7 +20,8 @@
     "next-intl": "^4.5.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1",
