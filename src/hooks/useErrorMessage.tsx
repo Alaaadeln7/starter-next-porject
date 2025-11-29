@@ -1,46 +1,47 @@
-'use client'
+'use client';
 
-import ErrorContentBox from '@/components/atoms/ErrorContentBox'
 import React, {
+  type ReactNode,
   createContext,
+  useCallback,
   useContext,
   useState,
-  useCallback,
-  type ReactNode,
-} from 'react'
+} from 'react';
+
+import ErrorContentBox from '@/components/atoms/ErrorContentBox';
 
 type ErrorMessageContextType = {
-  error: Error | null
-  setError: (err: Error | null) => void
-  clearError: () => void
-}
+  error: Error | null;
+  setError: (err: Error | null) => void;
+  clearError: () => void;
+};
 
 const ErrorMessageContext = createContext<ErrorMessageContextType | undefined>(
-  undefined,
-)
+  undefined
+);
 
 export const useErrorMessage = (): ErrorMessageContextType => {
-  const context = useContext(ErrorMessageContext)
+  const context = useContext(ErrorMessageContext);
   if (!context) {
-    throw new Error('useErrorMessage must be used within ErrorMessageProvider')
+    throw new Error('useErrorMessage must be used within ErrorMessageProvider');
   }
-  return context
-}
+  return context;
+};
 
 export const ErrorMessageProvider = ({ children }: { children: ReactNode }) => {
-  const [error, setErrorState] = useState<Error | null>(null)
+  const [error, setErrorState] = useState<Error | null>(null);
 
   const setError = useCallback((err: Error | null) => {
-    setErrorState(err)
-  }, [])
+    setErrorState(err);
+  }, []);
 
   const clearError = useCallback(() => {
-    setErrorState(null)
-  }, [])
+    setErrorState(null);
+  }, []);
 
   return (
     <ErrorMessageContext.Provider value={{ error, setError, clearError }}>
       {error ? <ErrorContentBox error={error} /> : children}
     </ErrorMessageContext.Provider>
-  )
-}
+  );
+};

@@ -1,20 +1,22 @@
-import type { Metadata } from 'next'
-import { getMessages, getLocale } from 'next-intl/server'
-import { Providers } from '@/providers/Providers'
-import '@/styles/globals.css'
+import type { Metadata } from 'next';
+import { getLocale, getMessages } from 'next-intl/server';
+
+import { Providers } from '@/providers/Providers';
+
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: 'starter-next-project',
-  description: 'Order direct from Demo',
-}
+  title: 'nextjs-app-template',
+  description: 'nextjs app template',
+};
 
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const locale = await getLocale()
-  const messages = await getMessages()
+  const locale = await getLocale();
+  const messages = await getMessages();
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
@@ -24,5 +26,5 @@ export default async function RootLayout({
         </Providers>
       </body>
     </html>
-  )
+  );
 }
