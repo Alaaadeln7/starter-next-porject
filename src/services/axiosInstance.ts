@@ -16,22 +16,22 @@ export const AxiosAPI = axios.create({
 
 AxiosAPI.interceptors.request.use(
   config => {
-    let lang = getFromCookies('LANG');
+    const lang = getFromCookies('LANG');
     config.headers['Accept-Language'] = lang || 'en';
 
     // ------------------------------------------------------------------------------------------
-    let branchId = getFromCookies('branch-id');
+    const branchId = getFromCookies('branch-id');
     config.headers['branch-id'] = branchId || '0';
 
     // ------------------------------------------------------------------------------------------
-    let serviceId = getFromCookies('service-id');
+    const serviceId = getFromCookies('service-id');
     config.headers['service-id'] = serviceId || '';
 
     // ------------------------------------------------------------------------------------------
     config.headers['device-type'] = 4;
 
     // ------------------------------------------------------------------------------------------
-    let token = getFromCookies('token');
+    const token = getFromCookies('token');
     config.headers['Authorization'] = token ? `Bearer ${token}` : undefined;
 
     // ------------------------------------------------------------------------------------------
