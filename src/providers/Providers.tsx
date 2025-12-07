@@ -13,8 +13,7 @@ export function Providers({
 }: {
   children: React.ReactNode;
   locale: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  messages: any;
+  messages: Array<object>;
 }) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
