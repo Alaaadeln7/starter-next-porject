@@ -1,9 +1,9 @@
+import { Providers } from '@/providers/Providers';
+import '@/styles/globals.css';
 import type { Metadata } from 'next';
 import { getLocale, getMessages } from 'next-intl/server';
 
-import { Providers } from '@/providers/Providers';
 
-import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'nextjs-app-template',
