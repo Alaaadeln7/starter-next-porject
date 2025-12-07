@@ -4,7 +4,7 @@ import { useTransition } from 'react';
 
 import { useRouter } from 'next/navigation';
 
-import { AxiosAPI } from '@/axios/axiosInstance';
+import { AxiosAPI } from '@/services/axiosInstance';
 import { useQueryClient } from '@tanstack/react-query';
 
 import { Button } from '../ui/button';
